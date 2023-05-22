@@ -1,0 +1,44 @@
+[HEADER]  [<Commit Type>] <scope; files affected by the change>: <short summary>
+[Commit Message Body] Issue, Change, Motive, Comparison
+[Commit Message Footer] Reference
+
+- **Header —**
+    - The <type> and <summary> fields are mandatory, the (<scope>) field is optional.
+    - Types may include --  
+        > docs: Documentation only changes  
+        > chore: Regular code maintenance
+        > project: A new project is initiated and Some files relating to that project was created
+        > crt: A new file is created (If the file is intented to be used as a tutorial or reference then use ref instead).
+        > ref: A new tutorial/reference file is initiated
+        > feat: A new feature (use sec instead of feat in tutorial-like code files).
+        > sec: A new section of code 
+		> subsec: A subsection inside an existing section of the code
+		> fix: A bug fix
+        > perf: A code change that improves performance
+        > refactor: A code change that neither fixes a bug nor adds a feature
+		> rename: Renaming a file/folder
+        > test: Adding missing tests or correcting existing tests
+    - Summary in the present tense. Capitalized. No period in the end.
+
+- **Commit Message Body —**
+    - Just as in the summary, use the imperative, present tense: "fix" not "fixed" nor "fixes".
+    - Explain the motivation for the change in the commit message body. This commit message should explain why you are making the change.
+    - You can include a comparison of the previous behavior with the new behavior in order to illustrate the impact of the change.
+    - Do not assume the reviewer understands what the original problem was, ensure you add it.
+    - Do not think your code is self-explanatory.
+
+- **Commit Message Footer —**
+    - The footer is the place to reference GitHub issues, Jira tickets, and other PRs that this commit closes or is related to.
+    - If the commit reverts to a previous commit, it should begin with <revert: followed by the header of the reverted commit>
+    - The content of the commit message body should contain:
+        > Information about the SHA of the commit being reverted in the following format: This reverts commit <SHA> 
+	and, a clear description of the reason for reverting the commit.
+
+
+### Best Practices
+
+1. use “git init” in a project folder that you know for sure has the correct name otherwise rename the folder before initializing a git project
+2. reformat your code every time you save the code. use a consistent format style.
+3. commit only when you are sure that the changes you have made are of significant nature. otherwise, there's no need to clog up the commit history with "fixed a typo" like commit messages.
+4. follow a definite commit message convention. Tip: you can use git hooks to remind you of the convention.
+5. remember to regularly push your code to the cloud once you feel that the changes are significant.
