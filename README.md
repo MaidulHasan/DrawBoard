@@ -1,35 +1,21 @@
----------------------------------------
-# Introduction to Computer Vision
--------------------------------------------
+--------------------------------------------------
+# DrawBoard: A simple black-board where you can draw anything with your mouse (OpenCV project)
+----------------------------------------------
 
----------------------------------------
-## OpenCV Basics
+----------------------------------------
+## Project Goal
 
-### Resources:
-  - https://docs.opencv.org/4.7.0/d6/d00/tutorial_py_root.html
-  - Getting Started with Contours in OpenCV by Bleed AI Academy ([YouTube Playlist Link](https://www.youtube.com/playlist?list=PLCeWwpzjQu9gc9C9-iZ9WTFNGhIq4-L1X))
+The goal is to utilize the OpenCV HighGUI module to create an application similar to "Paint". A window will be created where you can draw anything. You can choose which color to draw with (using a RGB color mixer window) and you can also define the paint brush size (i.e, width, using a trackbar). 
 
-### Future Prospect:
-  - Augmented Reality using OpenCV Python by Murtaza's Workshop ([YouTube Playlist Link](https://www.youtube.com/playlist?list=PLMoSUbG1Q_r-JNMQ0zJmv6SnXwgbA8JJp))
-  - Project in the Getting Started with Contours in OpenCV by Bleed AI Academy ([YouTube Playlist Link](https://www.youtube.com/playlist?list=PLCeWwpzjQu9gc9C9-iZ9WTFNGhIq4-L1X))
-  - OPENCV Professional Course (Hindi/English) by Aryan Verma ([YouTube Playlist Link](https://www.youtube.com/playlist?list=PLTXuqKbKkxkTy764PhX1yil5hj-5va099))
--------------------------------------------
+-----------------------------------------------
 
--------------------------------------------
-## Deep Learning for Computer Vision
+## Current Status, Usage, and Project Description
 
-### List of Possible Resources
-  - YOLO V3 & V4 from the very basics ([YouTube Playlist Link](https://www.youtube.com/playlist?list=PLbMO9c_jUD473OgrKYYMLRMEz-XZjG--n))
-  - Deep Learning for Computer Vision by Michigan Online ([YouTube Playlist Link](https://www.youtube.com/playlist?list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r))
-  - CNN for Visual Recognition by Stanford ([YouTube Playlist Link](https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv))
-  - Object Detection Playlist ([YouTube Playlist Link](https://www.youtube.com/playlist?list=PLYBHx8mJnnEMnxyEvvQbmsH5tvYaG9R6W))
-  - [Learning Path] Computer Vision Nano-Degree by Udacity
+### Caution !!!
 
--------------------------------------------
+This is a simple application built using OpenCV. The OpenCV library is not meant for developing such GUI applications and can use up significant resources. There are other libraries which are built specifically for developing such applications. If you need something fancy look elsewhere. If you need something very simple and just want to have fun you can use this one.
 
--------------------------------------------
-## CV for Robotics
+### Usage
 
-### List of Possible Resources
-  - DeepRob: Deep Learning for Robot Perception by University of Michigan ([YouTube Link](https://www.youtube.com/playlist?list=PLf_SmXJixhnXoMs0Qvxe500BrjfbIOwSg))
+
 -----------------------------------------------------
