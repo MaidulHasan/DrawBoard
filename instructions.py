@@ -13,27 +13,28 @@ import matplotlib.pyplot as plt
 # -----------------------------------------------------------------------------------------------
 
 
-instructions_window = np.zeros((140, 500, 3), dtype=np.uint8)
+instructions_window = np.zeros((180, 600, 3), dtype=np.uint8)
 instructions = [
     "Instructions on How to Use the Program",
     "___________________________________",
-    "Press 'd' to engage the drawing tool.",
-    "Press 'r' to release the drawing tool.",
-    "Press 'q' to save current view and exit application.",
-    "Press 'c' to close the instructions window.",
+    "-> Press 'd' to engage the drawing tool.",
+    "Keep the left mouse button pressed down while drawing.",
+    "-> Press 'r' to release the drawing tool.",
+    "-> Press 'q' to save current view and exit application.",
+    "-> Press 'c' to close the instructions window.",
 ]
 
-text_pos_y = 30
+text_pos_y = 20
 
 for line in instructions:
     cv.putText(
         instructions_window,
         line,
-        (30, text_pos_y),
+        (10, text_pos_y),
         cv.FONT_HERSHEY_PLAIN,
-        1.2,
+        1,
         (0, 255, 0),
-        2,
+        1,
     )
     text_pos_y += 20
 
