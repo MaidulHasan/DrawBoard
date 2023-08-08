@@ -15,14 +15,14 @@ import matplotlib.pyplot as plt
 ### create the Control Panel window
 # -------------------------------------
 
-cv.namedWindow("Control_Panel")
+cv.namedWindow("Control_Panel", flags=cv.WINDOW_AUTOSIZE)
 
 # -----------------
 ### Color Mixer
 # -----------------
 
-
-color_sample = np.ones((100, 400, 3), dtype=np.uint8)
+# create the color_sample image to be shown in the control panel window
+color_sample = np.zeros((100, 400, 3), dtype=np.uint8)
 
 
 def get_color_component_values_from_tackbars():
@@ -40,6 +40,9 @@ def color_mixer():
     return color_sample
 
 
+# from the rgb trackbar position change callback function
+# we return the result from color_mixer() i.e, the color_sample image so that color_sample
+# image will be continuously updated as the rgb trackbar positions changes
 def rgb_callback(pos, userdata=0):
     return color_mixer()
 
@@ -47,12 +50,6 @@ def rgb_callback(pos, userdata=0):
 cv.createTrackbar("R", "Control_Panel", 160, 255, rgb_callback)
 cv.createTrackbar("G", "Control_Panel", 160, 255, rgb_callback)
 cv.createTrackbar("B", "Control_Panel", 160, 255, rgb_callback)
-
-
-def show_control_panel():
-    # the trackbar callback function will automatically update 'color' and show it using this imshow
-    # function when called within a 'while True' loop in the main DrawBoard GUI file
-    cv.imshow("Control_Panel", color_sample)
 
 
 # -----------------------------
@@ -93,3 +90,12 @@ cv.createTrackbar(
     1,
     update_drawing_tool_status,
 )
+
+
+# --------------------------------------------
+### Show the control panel
+# --------------------------------------------
+def show_control_panel():
+    # the trackbar callback function will automatically update 'color' and show it using this imshow
+    # function when called within a 'while True' loop in the main DrawBoard GUI file
+    cv.imshow("Control_Panel", color_sample)
