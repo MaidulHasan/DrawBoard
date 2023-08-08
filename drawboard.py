@@ -9,6 +9,7 @@ import time
 
 from instructions import show_instructions
 from options import show_control_panel
+from options import update_drawing_tool_status
 
 
 # -----------------------------------------------------------------------------------------------
@@ -19,7 +20,6 @@ from options import show_control_panel
 # callback should go from the main window and various windows should be displayed under certain conditions
 
 is_left_down = False
-draw_mode = False
 
 
 def mouse_callback(event, x, y, flags, userdata):
@@ -51,8 +51,8 @@ while True:
     if keyboard_input == ord("c"):
         cv.destroyWindow(instruction_window)
     if keyboard_input == ord("d"):
-        draw_mode = True
+        update_drawing_tool_status(1)
     if keyboard_input == ord("r"):
-        draw_mode == False
+        update_drawing_tool_status(0)
 
 cv.destroyAllWindows()
