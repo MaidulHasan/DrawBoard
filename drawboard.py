@@ -9,49 +9,106 @@ import time
 
 from instructions import show_instructions
 from options import show_control_panel
+from options import color_to_draw_with
+from options import paint_brush_size
 from options import update_drawing_tool_status
+from queue_ import Queue
+from draw import draw
 
 
 # -----------------------------------------------------------------------------------------------
 ###                                       DrawBoard GUI                                     ###
 # -----------------------------------------------------------------------------------------------
 
+# creating the named window DrawBoard-GUI
+cv.namedWindow("DrawBoard-GUI", flags=cv.WINDOW_AUTOSIZE)
 
-# callback should go from the main window and various windows should be displayed under certain conditions
+# creating the initial black board to show on the DrawBoard-GUI window
+drawboard_gui = np.zeros((500, 1000, 3), dtype=np.uint8)
 
+
+# global variables
 is_left_down = False
+mouse_X_and_mouse_Y = Queue()
+color = (
+    160,
+    160,
+    160,
+)  # the default position used in the rgb trackbars when initiating
+thickness = 1  # the default brush thickness when first initiating the DrawBoard-GUI
+
+# callback should go from the main window i.e, the DrawBoard-GUI window and
+# various other windows (e.g, instructions window, control panel window etc.)
+# should only be displayed under certain conditions
 
 
 def mouse_callback(event, x, y, flags, userdata):
-    global is_left_down
+    global is_left_down, mouse_X_and_mouse_Y, color, thickness, drawboard_gui
 
-    if event == cv.EVENT_LBUTTONDBLCLK:
-        pass
+    if event == cv.EVENT_LBUTTONDOWN:
+        is_left_down = True
+
+    if event == cv.EVENT_LBUTTONUP:
+        is_left_down = False
+
+    if is_left_down == True and event == cv.EVENT_MOUSEMOVE:
+        pos_to_finish_drawing = (x, y)
+
+        if mouse_X_and_mouse_Y.read() is None:
+            mouse_X_and_mouse_Y.enqueue((x, y))
+        else:
+            pos_to_start_drawing = mouse_X_and_mouse_Y.dequeue()
+            mouse_X_and_mouse_Y.enqueue(pos_to_finish_drawing)
+
+            # the draw function changes the canvas in-place. So we pass drawboard_gui image as the
+            # canvas and reassign it to the drawboard_gui image
+            drawboard_gui = draw(
+                pos_to_start_drawing,
+                pos_to_finish_drawing,
+                drawboard_gui,
+                color,
+                thickness,
+            )
+    # we return the drawboard_gui image after any mouse event callback since we want to
+    # continuously update the drawboard_gui image that is shown on the DrawBoard-GUI window
+    return drawboard_gui
+
+
+# setting up mouse callback on the DrawBoard-GUI window
+cv.setMouseCallback("DrawBoard-GUI", mouse_callback)
 
 
 # showing the instructions window
 instruction_window = show_instructions()
 
-# creating named window as the gui black-board, binding the window for observing mouse events,
-# and setting up mouse callback
-
-drawboard_gui = np.zeros((500, 1000, 3), dtype=np.uint8)
-
-cv.namedWindow("DrawBoard-GUI")
-
-cv.setMouseCallback("DrawBoard-GUI", mouse_callback)
 
 while True:
-    show_control_panel()
+    # show the drawboard_gui on the DrawBoard-GUI window
     cv.imshow("DrawBoard-GUI", drawboard_gui)
 
+    # showing the control panel (we do this inside the while loop since we want to be
+    # kept updated on the control panel changes and always stay displayed while the
+    # application is running)
+    show_control_panel()
+
+    # get the color to draw with on the gui
+    color = color_to_draw_with()
+    # get the line thickness
+    thickness = paint_brush_size()
+
+    # wait for any keyboard input and act accordingly
     keyboard_input = cv.waitKey(100)
+
     if keyboard_input == (ord("q") or 27):
+        final_drawboard_gui_status = drawboard_gui
         break
+
     if keyboard_input == ord("c"):
         cv.destroyWindow(instruction_window)
+
     if keyboard_input == ord("d"):
         update_drawing_tool_status(1)
+
     if keyboard_input == ord("r"):
         update_drawing_tool_status(0)
 
