@@ -24,7 +24,7 @@ Run the `drawboard.py` file to launch the application. The Blackboard GUI will b
 <img src="./Instructions on How to Use the Program_screenshot_09.08.2023.png">
 
 - Control panel window
-<img src="./Control_Panel_screenshot_09.08.2023.png">
+<img src="./Control_Panel_Screenshot.png">
 
 - DrawBoard GUI
 <img src="./DrawBoard-GUI_screenshot_09.08.2023_Hello.png">
