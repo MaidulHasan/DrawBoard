@@ -23,4 +23,5 @@ Run the `drawboard.py` file to launch the application. The Blackboard GUI will b
 1. Add fullscreen mode.
 2. Add an eraser (width can be controlled by the brush size control trackbar).
 3. Show warnings when brush size is set to 0 and user tries to draw or when the draw tool is released and user tries to draw without engaging it first etc.
+4. Add undo option (maybe for last 3 strokes).
 -----------------------------------------------------
