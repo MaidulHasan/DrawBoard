@@ -86,7 +86,7 @@ def update_drawing_tool_status(pos):
 cv.createTrackbar(
     "Drawing Tool Dis-engaged/Released (0)\nDrawing Tool Engaged, Draw Mode (1): ",
     "Control_Panel",
-    0,
+    1,
     1,
     update_drawing_tool_status,
 )
