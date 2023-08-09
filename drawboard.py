@@ -47,8 +47,11 @@ def mouse_callback(event, x, y, flags, userdata):
 
     if event == cv.EVENT_LBUTTONDOWN:
         is_left_down = True
+        # initialize a-new to avoid joining of two points from two different draws
+        # (last point of the prev draw and first point of the current draw) with straight lines
+        mouse_X_and_mouse_Y = Queue()
 
-    if event == cv.EVENT_LBUTTONUP:
+    if is_left_down == True and event == cv.EVENT_LBUTTONUP:
         is_left_down = False
 
     if is_left_down == True and event == cv.EVENT_MOUSEMOVE:
