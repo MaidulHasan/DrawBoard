@@ -16,9 +16,14 @@ from queue_ import Queue
 from draw import draw
 
 
+# provide the file_path to which the final drawboard status is to be written
+save_path = "./saved_drawboards/lattest_drawboard.png"
+
+
 # -----------------------------------------------------------------------------------------------
 ###                                       DrawBoard GUI                                     ###
 # -----------------------------------------------------------------------------------------------
+
 
 # creating the named window DrawBoard-GUI
 cv.namedWindow("DrawBoard-GUI", flags=cv.WINDOW_AUTOSIZE)
@@ -126,5 +131,8 @@ while True:
     if keyboard_input == ord("r"):
         update_drawing_tool_status(0)
         is_drawing_pen_engaged = False
+
+
+cv.imwrite(save_path, final_drawboard_gui_status)
 
 cv.destroyAllWindows()
