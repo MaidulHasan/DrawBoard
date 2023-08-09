@@ -36,7 +36,7 @@ color = (
     160,
 )  # the default position used in the rgb trackbars when initiating
 thickness = 1  # the default brush thickness when first initiating the DrawBoard-GUI
-# is_drawing_pen_engaged = True
+is_drawing_pen_engaged = True
 
 # callback should go from the main window i.e, the DrawBoard-GUI window and
 # various other windows (e.g, instructions window, control panel window etc.)
@@ -48,6 +48,10 @@ def mouse_callback(event, x, y, flags, userdata):
 
     # doesn't draw if thickness == 0
     if thickness == 0:
+        return drawboard_gui
+
+    # draw only if drawing pen is engaged
+    if is_drawing_pen_engaged is False:
         return drawboard_gui
 
     if event == cv.EVENT_LBUTTONDOWN:
@@ -117,8 +121,10 @@ while True:
 
     if keyboard_input == ord("d"):
         update_drawing_tool_status(1)
+        is_drawing_pen_engaged = True
 
     if keyboard_input == ord("r"):
         update_drawing_tool_status(0)
+        is_drawing_pen_engaged = False
 
 cv.destroyAllWindows()
