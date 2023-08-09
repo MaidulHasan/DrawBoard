@@ -18,6 +18,16 @@ This is a simple application built using OpenCV. The OpenCV library is not meant
 ### Usage
 Run the `drawboard.py` file to launch the application. The Blackboard GUI will be displayed along with the Control panel window and the Instructions window.
 
+### Some screenshots of the program
+
+- Instructions window
+<img src="./Instructions on How to Use the Program_screenshot_09.08.2023.png">
+
+- Control panel window
+<img src="./Control_Panel_screenshot_09.08.2023.png">
+
+- DrawBoard GUI
+<img src="./DrawBoard-GUI_screenshot_09.08.2023_Hello.png">
 
 ### Future prospect
 1. Add fullscreen mode.
