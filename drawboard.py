@@ -36,6 +36,7 @@ color = (
     160,
 )  # the default position used in the rgb trackbars when initiating
 thickness = 1  # the default brush thickness when first initiating the DrawBoard-GUI
+# is_drawing_pen_engaged = True
 
 # callback should go from the main window i.e, the DrawBoard-GUI window and
 # various other windows (e.g, instructions window, control panel window etc.)
@@ -44,6 +45,10 @@ thickness = 1  # the default brush thickness when first initiating the DrawBoard
 
 def mouse_callback(event, x, y, flags, userdata):
     global is_left_down, mouse_X_and_mouse_Y, color, thickness, drawboard_gui
+
+    # doesn't draw if thickness == 0
+    if thickness == 0:
+        return drawboard_gui
 
     if event == cv.EVENT_LBUTTONDOWN:
         is_left_down = True
@@ -65,6 +70,7 @@ def mouse_callback(event, x, y, flags, userdata):
 
             # the draw function changes the canvas in-place. So we pass drawboard_gui image as the
             # canvas and reassign it to the drawboard_gui image
+
             drawboard_gui = draw(
                 pos_to_start_drawing,
                 pos_to_finish_drawing,
