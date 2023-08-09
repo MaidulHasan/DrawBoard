@@ -13,12 +13,16 @@ import matplotlib.pyplot as plt
 # -----------------------------------------------------------------------------------------------
 
 
-instructions_window = np.zeros((180, 600, 3), dtype=np.uint8)
+instructions_window = np.zeros((250, 600, 3), dtype=np.uint8)
 instructions = [
     "Instructions on How to Use the Program",
     "___________________________________",
+    "-> Natural Draw: ",
+    "",
+    "Double click the left mouse button and start drawing.",
+    "Release double click to mark the end of a stroke.",
+    "",
     "-> Press 'd' to engage the drawing tool.",
-    "Keep the left mouse button pressed down while drawing.",
     "-> Press 'r' to release the drawing tool.",
     "-> Press 'q' to save current view and exit application.",
     "-> Press 'c' to close the instructions window.",
