@@ -1,11 +1,11 @@
 --------------------------------------------------
-# DrawBoard: A Digital Balckboard (like Google Jamboard but much simpler) [OpenCV Project]
+# DrawBoard: A Digital Blackboard (like Google Jamboard but much simpler) [OpenCV Project]
 ----------------------------------------------
 
 ----------------------------------------
 ## Project Goal
 
-The goal is to utilize the OpenCV HighGUI module to create an application similar to Google Jamboard or Microsoft Paint. A window will be created where you can draw anything. You can choose which color to draw with (using a RGB color mixer window) and you can also define the brush size (i.e, drawing tool width) using a trackbar. 
+The goal is to utilize the OpenCV HighGUI module to create an application similar to Google Jamboard or Microsoft Paint. A window will be created where you can draw anything. You can choose which color to draw with (using a RGB color mixer window) and you can also define the brush size (i.e., drawing tool width) using a trackbar. 
 
 -----------------------------------------------
 
@@ -13,7 +13,7 @@ The goal is to utilize the OpenCV HighGUI module to create an application simila
 
 ### Caution !!!
 
-This is a simple application built using OpenCV. The OpenCV library is not meant for developing such GUI applications and can use up significant resources. There are other libraries which are built specifically for developing such applications. If you need something fancy look elsewhere. If you need something very simple and just want to have fun you can use this one. Have Fun !!! 
+This is a simple application built using OpenCV. The OpenCV library is not meant for developing such GUI applications and can use up significant resources. There are other libraries that are built specifically for developing such applications. If you need something fancy look elsewhere. If you need something very simple and just want to have fun you can use this one. Have Fun !!! 
 
 ### Usage
 Run the `drawboard.py` file to launch the application. The Blackboard GUI will be displayed along with the Control panel window and the Instructions window.
